@@ -65,7 +65,13 @@ char* Addpdf(char*& nArq){
     return name;
 }
 
-void Histo1D(char* nArq, double xmax = 50000, int nDiv = 100, char* xtitle = "#bf{[u.a.]}", char* title = ""){
+void PrintUsage(){
+
+    std::cout << "Usage:\n\n./[Compile_name] [Data_file] [Xmax] [nBin] [XTitle] [Title]\n\n";
+}
+
+void Histo1D(char* nArq, double xmax = 50000, int nDiv = 100, char* xtitle = "#bf{[u.a.]}", 
+    char* title = ""){
 
     TH1F *Histo1D = new TH1F("h1", title, nDiv, 0, xmax);
 
@@ -74,6 +80,8 @@ void Histo1D(char* nArq, double xmax = 50000, int nDiv = 100, char* xtitle = "#b
     std::fstream file;
 
     file.open(nArq, std::ios::in);
+
+    if(!file.is_open()){PrintUsage(); return;}
 
     float x;
 
@@ -125,6 +133,7 @@ int main(int argc,char** argv){
             Histo1D(argv[1], std::stod(maximo), std::stoi(divisao), argv[4]);
             break;
         default:
+            PrintUsage();
             break;
     }
     return 0;
