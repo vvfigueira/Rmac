@@ -85,8 +85,6 @@ void Gp(char* nArq, double xmin = 0, double xmax = 100, char* xtitle = "#bf{[u.a
 
 int main(int argc, char** argv){
 
-    std::string arquivo, nomearquivo, maximo, divisao, parametro;
-
     switch (argc){
         case 2:
             Gp(argv[1]);

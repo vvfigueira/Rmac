@@ -85,8 +85,6 @@ void GpWE(char* nArq, double xmin = 0, double xmax = 100, char* xtitle = "#bf{[u
 
 int main(int argc, char** argv){
 
-    std::string arquivo, nomearquivo, maximo, divisao, parametro;
-
     switch (argc){
         case 2:
             GpWE(argv[1]);
